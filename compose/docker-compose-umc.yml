@@ -1,0 +1,87 @@
+version: '2'
+networks:
+    net:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.100.10.0/24
+                  gateway: 172.100.10.253
+services:
+    umc-1:
+        image: docker-registry:5000/actiontech/balm-runtime-centos7
+        container_name: umc-1
+        hostname: umc-1
+        privileged: true
+        stdin_open: true
+        tty: true
+        volumes:
+              - "/var/lib/docker:/var/lib/docker"
+        ports:
+           - 5799:5799
+           - 5709:5709
+           - 5715:5715
+           - 5713:5713
+           - 5708:5708
+        networks:
+            net:
+              ipv4_address: 172.100.10.1
+    umc-2:
+            image: docker-registry:5000/actiontech/balm-runtime-centos7
+            container_name: umc-2
+            hostname: umc-2
+            privileged: true
+            stdin_open: true
+            tty: true
+            networks:
+                net:
+                  ipv4_address: 172.100.10.2
+    umc-3:
+                image: docker-registry:5000/actiontech/balm-runtime-centos7
+                container_name: umc-3
+                hostname: umc-3
+                privileged: true
+                stdin_open: true
+                tty: true
+                networks:
+                    net:
+                      ipv4_address: 172.100.10.3
+    umc-4:
+                    image: docker-registry:5000/actiontech/balm-runtime-centos7
+                    container_name: umc-4
+                    hostname: umc-4
+                    privileged: true
+                    stdin_open: true
+                    tty: true
+                    networks:
+                        net:
+                          ipv4_address: 172.100.10.4
+    umc-5:
+                        image: docker-registry:5000/actiontech/balm-runtime-centos7
+                        container_name: umc-5
+                        hostname: umc-5
+                        privileged: true
+                        stdin_open: true
+                        tty: true
+                        networks:
+                            net:
+                              ipv4_address: 172.100.10.5
+    umc-6:
+                            image: docker-registry:5000/actiontech/balm-runtime-centos7
+                            container_name: umc-6
+                            hostname: umc-6
+                            privileged: true
+                            stdin_open: true
+                            tty: true
+                            networks:
+                                net:
+                                  ipv4_address: 172.100.10.6
+    umc-7:
+                                image: docker-registry:5000/actiontech/balm-runtime-centos7
+                                container_name: umc-7
+                                hostname: umc-7
+                                privileged: true
+                                stdin_open: true
+                                tty: true
+                                networks:
+                                    net:
+                                      ipv4_address: 172.100.10.7

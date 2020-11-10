@@ -1,0 +1,17 @@
+agent:
+    container_name: Casperjs_autotest
+    hostname: Casperjs_autotest
+    image: docker-registry:5000/actiontech/autotest-casperjs-agent:v5
+    privileged: true
+    restart: always
+    volumes:
+      - "/opt/docker:/var/lib/docker"
+      - "/opt/result:/var/log/result"
+    ports:
+      - "7010:5799"
+      - "7019:5709"
+      - "7013:5713"
+      - "7015:5715"
+      - "7018:5708"
+    extra_hosts:
+      - "docker-registry:10.186.18.20"
